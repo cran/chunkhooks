@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Change the unit of figure size</title>
+
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Change the unit of figure size</h1>
+
+
+
+<p>By default, R Markdown employs inch as a unit of figure size. You can change it by <code>hook_figure_unit</code>.</p>
+<p><strong>CAUTIONS</strong></p>
+<ul>
+<li>This hook must not run twice in a document. Otherwise, you will face unexpected figure size.</li>
+<li>RStudio IDE do not detect the hook and treats <code>fig.width</code> and <code>fig.height</code> in inches.</li>
+<li>This hook sets <code>NULL</code> to the <code>fig.retina</code> chunk option.</li>
+</ul>
+<div id="basic-usage" class="section level1">
+<h1>Basic usage</h1>
+<p><code>hook_figure_unit()</code> changes to the unit of figure size to millimeters. Note that this hook will not change the default size.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(chunkhooks)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">hook_figure_unit</span>()</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#&gt; fig.retina is set NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># fig.width=50, fig.height=50 (50mm * 50mm)</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">plot</span>(<span class="dv">1</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div id="other-units" class="section level2">
+<h2>Other units</h2>
+<p>You may change default unit by the first argument, <code>unit</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">hook_figure_unit</span>(<span class="st">&quot;cm&quot;</span>)</span></code></pre></div>
+<p>Choices are followings:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>measurements<span class="op">::</span>conv_unit_options<span class="op">$</span>length</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co">#&gt;  [1] &quot;angstrom&quot;   &quot;nm&quot;         &quot;um&quot;         &quot;mm&quot;         &quot;cm&quot;        </span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#&gt;  [6] &quot;dm&quot;         &quot;m&quot;          &quot;km&quot;         &quot;inch&quot;       &quot;ft&quot;        </span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co">#&gt; [11] &quot;foot&quot;       &quot;feet&quot;       &quot;yd&quot;         &quot;yard&quot;       &quot;fathom&quot;    </span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co">#&gt; [16] &quot;mi&quot;         &quot;mile&quot;       &quot;naut_mi&quot;    &quot;au&quot;         &quot;light_yr&quot;  </span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">#&gt; [21] &quot;light_year&quot; &quot;parsec&quot;     &quot;point&quot;</span></span></code></pre></div>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
